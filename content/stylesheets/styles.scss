@@ -28,16 +28,24 @@ content {
   ul {
     display: inline-block;
     margin: 0 auto 30px auto;
+    padding: 6px 0;
     list-style: none;
+    height: image-height('ruby_lang.png');
+    padding-left: image-width('ruby_lang.png') + 30px;
+    background: image-url('ruby_lang.png') no-repeat left top;
 
     li {
       text-align: left;
       font-size: 1.6em;
-      margin-bottom: 10px;
 
       a, a:hover {
         text-decoration: none;
         color: inherit;
+        line-height: (image-height('ruby_lang.png') - 12px) / 2;
+      }
+
+      &.phone a {
+        cursor: default;
       }
     }
   }
