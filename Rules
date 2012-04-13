@@ -23,6 +23,11 @@ end
 compile '/javascripts/*/' do
 end
 
+compile '/htaccess/' do
+  filter :erb
+  # don’t layout
+end
+
 compile '*' do
   if item.binary?
     # don’t filter binary items
@@ -36,11 +41,15 @@ route '/stylesheets/*/' do
   item.identifier.chop + '.css'
 end
 
+route '/htaccess/' do
+  '/.htaccess'
+end
+
 route '*' do
   if item.binary?
     item.identifier.chop + '.' + item[:extension]
   else
-    if item.children.size > 0 || item.identifier == '/'
+    if item.children.size > 0 || item.identifier == '/' || item.identifier == "/#{item[:locale]}/"
       item.identifier + 'index.html'
     else
       item.identifier.gsub(/\/$/, '') + '.' + item[:extension]

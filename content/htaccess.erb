@@ -1,0 +1,26 @@
+---
+locale: false
+---
+Options +MultiViews
+
+RewriteEngine On
+RewriteBase /
+
+# Set prefered language from browser preference if available or to default locale
+RewriteCond %{HTTP:Accept-Language} ^.*?(<%= I18n.available_locales.map{|l| l.to_s }.join('|') %>).*$ [NC]
+RewriteRule ^(.*)$ - [env=prefer-language:%1,S=1]
+RewriteRule ^(.*)$ - [env=prefer-language:<%= I18n.default_locale.to_s %>]
+
+# Force prefered language if present in URI
+SetEnvIf REQUEST_URI ^/(<%= I18n.available_locales.map{|l| l.to_s }.join('|') %>)(/.+)? prefer-language=$1
+
+# Rewrite root access to prefered language root
+RewriteRule ^(/)?$ %{ENV:prefer-language}/ [R=303,L]
+
+# Rewrite other uri to language scope
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_URI} !^/(<%= I18n.available_locales.map{|l| l.to_s }.join('|') %>)
+RewriteRule ^(.*)$ %{ENV:prefer-language}/$1 [R=303,L]
+

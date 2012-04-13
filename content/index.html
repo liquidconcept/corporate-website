@@ -1,5 +1,9 @@
 ---
-headline: Agile Development with Ruby and Rails in Lausanne, Switzerland
+locale:
+  en:
+    headline: Agile development with Ruby and Rails in Lausanne, Switzerland
+  fr:
+    headline: Développement agile avec Ruby et Rails à Lausanne, Suisse
 ---
 <content>
   <h1>Liquid Concept</h1>
@@ -7,7 +11,13 @@ headline: Agile Development with Ruby and Rails in Lausanne, Switzerland
     <li class="phone"><a href="tel:41216480341">+41 216 480 341</a></li>
   	<li class="email"><a href="mailto:&#105;&#110;&#102;&#111;&#064;&#108;&#105;&#113;&#117;&#105;&#100;&#045;&#099;&#111;&#110;&#099;&#101;&#112;&#116;&#046;&#099;&#104;">&#105;&#110;&#102;&#111;&#064;&#108;&#105;&#113;&#117;&#105;&#100;&#045;&#099;&#111;&#110;&#099;&#101;&#112;&#116;&#046;&#099;&#104;</a></li>
   </ul>
-  <p>Agile development with <strong rel="tooltip" title="The programmer's best friend">Ruby</strong> and <strong rel="tooltip" title="Web development that doesn't hurt">Rails</strong> powered by a <strong rel="tooltip" title="Scrum, the yoga way of development">Scrum</strong> team for a better <strong rel="tooltip" title="Humanizing web application">User eXperience</strong>.</p>
+
+  <% if item[:locale] == :en %>
+    <p>Agile development with <strong rel="tooltip" title="The programmer's best friend">Ruby</strong> and <strong rel="tooltip" title="Web development that doesn't hurt">Rails</strong> powered by a <strong rel="tooltip" title="The yoga way of development">Scrum</strong> team for a better <strong rel="tooltip" title="Humanizing web application">User eXperience</strong>.</p>
+  <% else %>
+    <p>Développement agile avec <strong rel="tooltip" title="Le meilleur ami du programmeur">Ruby</strong> et <strong rel="tooltip" title="Le développement web sans douleur">Rails</strong> alimenté par une équipe <strong rel="tooltip" title="Le yoga du développement">Scrum</strong> pour une meilleure <strong rel="tooltip" title="Humaniser les applications web">eXpérience Utilisateur</strong>.</p>
+  <% end %>
+
   <ul class="social">
   	<li class="twitter">
   		<a href="http://twitter.com/LiquidConcept">Twitter</a>

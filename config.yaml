@@ -37,7 +37,7 @@ data_sources:
   -
     # The type is the identifier of the data source. By default, this will be
     # `filesystem_unified`.
-    type: filesystem_unified
+    type: filesystem_i18n
 
     # The path where items should be mounted (comparable to mount points in
     # Unix-like systems). This is “/” by default, meaning that items will have
@@ -57,6 +57,19 @@ data_sources:
     # will have the identifier “/about/” when turned off, but when turned on
     # it will become “/about.html/” instead.
     allow_periods_in_identifiers: false
+
+    # i18n
+    locale:
+      availables:
+        en:
+          name: "English"
+        fr:
+          name: "Francais"
+          default: true
+      # objects should be not localized
+      exclude:
+        item: ['/stylesheets*', '/javascripts*', '/images*']
+        layout: ['*']
 
 # Configuration for the “watch” command, which watches a site for changes and
 # recompiles if necessary.
