@@ -1,6 +1,6 @@
 
 body {
-  background-color: #BCBCBC;
+  background-color: #EDEAEA;
   font-family: arial;
 }
 
@@ -20,12 +20,13 @@ body {
   margin-left: $box_width / -2;
     
   #content {
-    padding: 20px;
+    padding: 50px 60px 50px 60px;
     text-align: justify;
     text-align: center;
 
-    h1 {
-      font-size: 2.5em;  
+    img{
+      height: 100px;
+      width: 100px;
     }
 
     .tel {
