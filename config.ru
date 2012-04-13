@@ -1,9 +1,13 @@
-#\ -w
-$: << File.expand_path('..', __FILE__)
-
-require 'rubygems' if RUBY_VERSION < '1.9'
+require 'rubygems'
 require 'bundler/setup'
 
-require 'app/website'
+require 'rack'
+require 'rack/contrib/try_static'
 
-run Application::Website.new
+use Rack::TryStatic,
+    root: 'public',                              # static files root dir
+    urls: %w[/],                                 # match all requests
+    try:  ['.html', 'index.html', '/index.html'] # try these postfixes sequentially
+
+run lambda{|env| [ 404, { 'Content-Type'  => 'text/html' }, ['404 - Page Not Found'] ]}
+

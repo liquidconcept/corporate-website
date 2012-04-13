@@ -1,7 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    bootstrap-sass (2.0.1)
+    bootstrap-sass (2.0.2)
     chunky_png (1.2.5)
     compass (0.12.1)
       chunky_png (~> 1.2)
@@ -18,7 +18,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass
+  bootstrap-sass (~> 2.0.2)
   compass
   nanoc
   rack

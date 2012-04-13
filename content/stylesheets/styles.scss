@@ -1,0 +1,52 @@
+@import "bootstrap";
+
+body {
+  background-color: #EDEAEA;
+  font-family: arial;
+}
+
+content {
+  $box_width: 550px;
+  $box_height: 350px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 550px;
+  height: 350px; 
+  margin: ($box_height / -2) 0 0 ($box_width / -2);
+  padding: 50px 60px 50px 60px;
+  border-style: solid;
+  border-width: 2px;
+  background-color: #FFFFFF; 
+  text-align: center;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  ul {
+    display: inline-block;
+    margin: 0 auto 30px auto;
+    list-style: none;
+
+    li {
+      text-align: left;
+      font-size: 1.6em;
+      margin-bottom: 10px;
+
+      a, a:hover {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  }
+
+  p {
+    display: inline-block;
+    width: 60%;
+    margin: 0 auto;
+    font-size: 1.3em;
+  }
+}
+

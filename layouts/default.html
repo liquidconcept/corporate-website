@@ -1,14 +1,16 @@
 <!DOCTYPE HTML>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Liquid Concept - Agile Developement with Ruby and Rails in Lausanne, Switzerland</title>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>Liquid Concept - <%= item[:headline] %></title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" media="screen">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
 
   <%= yield %>
 
-  </body>
+</body>
 </html>
