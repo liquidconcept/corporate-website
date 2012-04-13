@@ -1,0 +1,39 @@
+
+body {
+  background-color: #BCBCBC;
+  font-family: arial;
+}
+
+#box {
+  $box_width: 550px;
+  $box_height: 350px;
+
+  width: 550px;
+  height: 350px; 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-style: solid;
+  border-width: 2px;
+  background-color: #FFFFFF; 
+  margin-top: $box_height / -2;
+  margin-left: $box_width / -2;
+    
+  #content {
+    padding: 20px;
+    text-align: justify;
+    text-align: center;
+
+    h1 {
+      font-size: 2.5em;  
+    }
+
+    .tel {
+      font-size: 1.3em;
+    }
+
+    adress {
+      font-size: 1.3em;
+    }
+  }
+}
