@@ -1,9 +1,13 @@
 @import "bootstrap";
 @import "compass/typography/text/replacement";
+@import "compass/typography/lists/horizontal-list";
+
+@import "social-links/*.png";
+
+/**/
 
 body {
-  background-color: #EDEAEA;
-  font-family: arial;
+  background-color: #edeaea;
 }
 
 content {
@@ -17,17 +21,16 @@ content {
   height: 350px; 
   margin: ($box_height / -2) 0 0 ($box_width / -2);
   padding: 50px 60px 50px 60px;
-  border-style: solid;
-  border-width: 2px;
-  background-color: #FFFFFF; 
+  border: solid 2px #646569;
+  background-color: #ffffff; 
   text-align: center;
 
   h1 {
     @include replace-text-with-dimensions('liquid_concept.png');
-    margin: 0 auto 30px auto;
+    margin: 0 auto 35px auto;
   }
 
-  ul {
+  ul.contact {
     display: inline-block;
     margin: 0 auto 30px auto;
     padding: 6px 0;
@@ -57,6 +60,43 @@ content {
     width: 60%;
     margin: 0 auto;
     font-size: 1.3em;
+  }
+
+  $space_betwean_social_links: 20px;
+  ul.social {
+    position: absolute;
+    @include horizontal-list($space_betwean_social_links / 2);
+    bottom: 15px;
+    left: 0px;
+    right: 0px;
+    width: image-width('social-links/twitter.png') * 4 + $space_betwean_social_links * 3;
+    margin: 0 auto;
+
+    li {
+      a {
+        display: block;
+        @include hide-text;
+        width: image-width('social-links/twitter.png');
+        height: image-height('social-links/twitter.png');
+        cursor: pointer;
+      }
+
+      &.twitter a {
+        @include social-links-sprite(twitter);
+      }
+
+      &.facebook a {
+        @include social-links-sprite(facebook);
+      }
+
+      &.linkedin a {
+        @include social-links-sprite(linkedin);
+      }
+
+      &.github a {
+        @include social-links-sprite(github);
+      }
+    }
   }
 }
 

@@ -20,6 +20,9 @@ compile '/stylesheets/*/' do
   filter :sass, Compass.sass_engine_options
 end
 
+compile '/javascripts/*/' do
+end
+
 compile '*' do
   if item.binary?
     # don’t filter binary items
