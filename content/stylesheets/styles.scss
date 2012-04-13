@@ -6,6 +6,8 @@
 
 /**/
 
+$color_liquid_dark_blue: #646569;
+
 body {
   background-color: #edeaea;
 }
@@ -21,7 +23,7 @@ content {
   height: 350px; 
   margin: ($box_height / -2) 0 0 ($box_width / -2);
   padding: 50px 60px 50px 60px;
-  border: solid 2px #646569;
+  border: solid 2px $color_liquid_dark_blue;
   background-color: #ffffff; 
   text-align: center;
 
@@ -60,6 +62,10 @@ content {
     width: 60%;
     margin: 0 auto;
     font-size: 1.3em;
+
+    strong {
+      cursor: pointer;
+    }
   }
 
   $space_betwean_social_links: 20px;
@@ -97,6 +103,12 @@ content {
         @include social-links-sprite(github);
       }
     }
+  }
+}
+
+.tooltip {
+  .tooltip-inner {
+    font-size: 1.1em;
   }
 }
 
