@@ -21,7 +21,7 @@ content {
   left: 50%;
   width: 550px;
   height: 350px; 
-  margin: ($box_height / -2) 0 0 ($box_width / -2);
+  margin: ($box_height / -2) - 52px - 20px 0 0 ($box_width / -2) - 62px;
   padding: 50px 60px 50px 60px;
   border: solid 2px $color_liquid_dark_blue;
   background-color: #ffffff; 
