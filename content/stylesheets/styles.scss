@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "compass/typography/text/replacement";
 
 body {
   background-color: #EDEAEA;
@@ -22,7 +23,8 @@ content {
   text-align: center;
 
   h1 {
-    margin-bottom: 30px;
+    @include replace-text-with-dimensions('liquid_concept.png');
+    margin: 0 auto 30px auto;
   }
 
   ul {
