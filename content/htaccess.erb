@@ -24,3 +24,11 @@ RewriteCond %{REQUEST_FILENAME} !-l
 RewriteCond %{REQUEST_URI} !^/(<%= I18n.available_locales.map{|l| l.to_s }.join('|') %>)
 RewriteRule ^(.*)$ %{ENV:prefer-language}/$1 [R=303,L]
 
+# Rewrite old URI
+RedirectMatch seeother ^/developpement-ruby /fr
+RedirectMatch seeother ^/communication /fr
+RedirectMatch temp ^/blog /fr
+RedirectMatch seeother ^/en/ruby-development /en
+RedirectMatch seeother ^/en/communication-en /en
+RedirectMatch temp ^/en/blog /en
+
