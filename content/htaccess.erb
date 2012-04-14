@@ -6,6 +6,18 @@ Options +MultiViews
 RewriteEngine On
 RewriteBase /
 
+# Normalize domain name
+RewriteCond %{HTTP_HOST} !^www.liquid-concept.ch
+RewriteRule ^(.*)$ http://www.liquid-concept.ch$1 [R=301,L]
+
+# Rewrite old paths
+RedirectMatch seeother ^/developpement-ruby /fr
+RedirectMatch seeother ^/communication /fr
+RedirectMatch temp ^/blog /fr
+RedirectMatch seeother ^/en/ruby-development /en
+RedirectMatch seeother ^/en/communication-en /en
+RedirectMatch temp ^/en/blog /en
+
 # Set prefered language from browser preference if available or to default locale
 RewriteCond %{HTTP:Accept-Language} ^.*?(<%= I18n.available_locales.map{|l| l.to_s }.join('|') %>).*$ [NC]
 RewriteRule ^(.*)$ - [env=prefer-language:%1,S=1]
@@ -23,12 +35,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-l
 RewriteCond %{REQUEST_URI} !^/(<%= I18n.available_locales.map{|l| l.to_s }.join('|') %>)
 RewriteRule ^(.*)$ %{ENV:prefer-language}/$1 [R=303,L]
-
-# Rewrite old URI
-RedirectMatch seeother ^/developpement-ruby /fr
-RedirectMatch seeother ^/communication /fr
-RedirectMatch temp ^/blog /fr
-RedirectMatch seeother ^/en/ruby-development /en
-RedirectMatch seeother ^/en/communication-en /en
-RedirectMatch temp ^/en/blog /en
 
