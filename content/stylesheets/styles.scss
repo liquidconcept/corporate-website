@@ -6,49 +6,70 @@
 
 /**/
 
-$color_liquid_dark_blue: #646569;
+$color_link: #0078de;
+$color_text: #777777;
 
 body {
   background-color: #edeaea;
+  color: $color_text;
 }
 
 content {
-  $box_width: 550px;
-  $box_height: 350px;
+  position: relative;
+  display: block;
+  width: 650px;
+  margin: 50px auto 50px auto;
+  padding: 30px 60px 20px 60px;
 
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 550px;
-  height: 350px; 
-  margin: ($box_height / -2) - 52px - 20px 0 0 ($box_width / -2) - 62px;
-  padding: 50px 60px 50px 60px;
-  border: solid 2px $color_liquid_dark_blue;
+  border: solid 2px #646569;
   background-color: #ffffff; 
   text-align: center;
 
   h1 {
-    @include replace-text-with-dimensions('liquid_concept.png');
+    @include replace-text-with-dimensions('liquid_concept.jpg');
+    margin: 0 auto 0px auto;
+  }
+
+  .headline {
+    margin: 0 0 30px 0;
+    font-size: 1.3em;
+    color: lighten($color_text, 30%);
+  }
+
+  .scrum-board {
+    margin: 0;
+  }
+
+  p {
+    display: inline-block;
+    width: 60%;
+    margin: 35px auto 20px auto;
+    font-size: 1.3em;
+
+    strong {
+      cursor: pointer;
+    }
+  }
+
+  .contact-container {
+    display: inline-block;
     margin: 0 auto 35px auto;
   }
 
   ul.contact {
-    display: inline-block;
-    margin: 0 auto 30px auto;
-    padding: 6px 0;
-    list-style: none;
-    height: image-height('ruby_lang.png');
-    padding-left: image-width('ruby_lang.png') + 30px;
-    background: image-url('ruby_lang.png') no-repeat left top;
+    display: block;
+    @include float(left);
+    @include no-bullets();
+    padding: 40px 15px;
 
-    li {
-      text-align: left;
+    > li {
       font-size: 1.6em;
+      line-height: image-height('social-links/github.png') - 40px;
+      text-align: left;
 
       a, a:hover {
         text-decoration: none;
-        color: inherit;
-        line-height: (image-height('ruby_lang.png') - 12px) / 2;
+        color: $color_link;
       }
 
       &.phone a {
@@ -57,50 +78,48 @@ content {
     }
   }
 
-  p {
-    display: inline-block;
-    width: 60%;
-    margin: 0 auto;
-    font-size: 1.3em;
-
-    strong {
-      cursor: pointer;
-    }
-  }
-
   $space_betwean_social_links: 20px;
   ul.social {
-    position: absolute;
-    @include horizontal-list($space_betwean_social_links / 2);
-    bottom: 15px;
-    left: 0px;
-    right: 0px;
-    width: image-width('social-links/twitter.png') * 4 + $space_betwean_social_links * 3;
-    margin: 0 auto;
+    display: block;
+    @include float(left);
+    @include no-bullets();
+    width: 10px + image-width('social-links/linkedin.png') + image-width('social-links/github.png');
+    margin: 0 auto 8px auto;
 
     li {
+      @include float(left);
+
       a {
         display: block;
         @include hide-text;
-        width: image-width('social-links/twitter.png');
-        height: image-height('social-links/twitter.png');
         cursor: pointer;
       }
 
       &.twitter a {
         @include social-links-sprite(twitter);
+        width: image-width('social-links/twitter.png');
+        height: image-height('social-links/twitter.png');
+        margin-left: 5px;
       }
 
       &.facebook a {
         @include social-links-sprite(facebook);
+        width: image-width('social-links/facebook.png');
+        height: image-height('social-links/facebook.png');
+        margin-left: 20px;
       }
 
       &.linkedin a {
         @include social-links-sprite(linkedin);
+        width: image-width('social-links/linkedin.png');
+        height: image-height('social-links/linkedin.png');
       }
 
       &.github a {
         @include social-links-sprite(github);
+        width: image-width('social-links/github.png');
+        height: image-height('social-links/github.png');
+        margin-left: 10px;
       }
     }
   }
