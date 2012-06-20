@@ -18,6 +18,8 @@ GEM
       i18n (>= 0.4.1)
       nanoc (>= 3.1.2)
     rack (1.4.1)
+    rack-contrib (1.1.0)
+      rack (>= 0.9.1)
     sass (3.1.19)
 
 PLATFORMS
@@ -29,3 +31,4 @@ DEPENDENCIES
   nanoc
   nanoc-filesystem-i18n
   rack
+  rack-contrib
